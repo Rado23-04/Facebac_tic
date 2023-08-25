@@ -52,9 +52,7 @@ export default function Register() {
             <input placeholder="Confirm Password* " id="confirmPassword" className="loginInput" />
             <input placeholder="Username * " id="username" className="loginInput" />
             <button className="loginButton" id="submitSignUp" onClick={handleSubmit}>Sign Up</button>
-            <button className="loginRegisterButton">
-              Log into Account
-            </button>
+            
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           </div>
