@@ -42,7 +42,7 @@ export default function Register() {
         <div className="loginLeft">
           <h3 className="loginLogo">Facebak</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
+            Connect with friends and the world around you on facebak.
           </span>
         </div>
         <div className="loginRight">
@@ -52,9 +52,7 @@ export default function Register() {
             <input placeholder="Confirm Password* " id="confirmPassword" className="loginInput" />
             <input placeholder="Username * " id="username" className="loginInput" />
             <button className="loginButton" id="submitSignUp" onClick={handleSubmit}>Sign Up</button>
-            <button className="loginRegisterButton">
-              Log into Account
-            </button>
+            
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           </div>
