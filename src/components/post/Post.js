@@ -24,10 +24,10 @@ export default function Post() {
     axios.post(`http://127.0.0.1:8080/posts/${postId}/reactions`, {
       type: "LIKE",
       postId: postId,
-      userId: userId, // Utilisez l'ID de l'utilisateur actuel
+      userId: userId,
     })
     .then(response => {
-      // Mettez à jour l'état des réactions pour ce poste
+      
       console.log(response.data);
       setPostReactions(prevReactions => ({
         ...prevReactions,
@@ -43,13 +43,13 @@ export default function Post() {
     axios.post(`http://127.0.0.1:8080/posts/${postId}/reactions`, {
       type: "DISLIKE",
       postId: postId,
-      userId: userId, // Utilisez l'ID de l'utilisateur actuel
+      userId: userId, 
     })
     .then(response => {
-      // Mettez à jour l'état des réactions pour ce poste
+      
       setPostReactions(prevReactions => ({
         ...prevReactions,
-        [postId]: response.data.dislikes, // suppose que la réponse contient le nombre de dislikes après l'ajout
+        [postId]: response.data.dislikes, 
       }));
     })
     .catch(error => {
@@ -68,6 +68,7 @@ export default function Post() {
       <div key={index}>
         <h1>{post.title}</h1>
         <p>{post.content}</p>
+
         <div className='flexx'>
           <button className='like-button' onClick={() => handleLikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Like</button>
           <p>{postReactions[post.id]?.likes || 0}</p>
@@ -75,9 +76,10 @@ export default function Post() {
           <div className='flexx'> 
               <button className='like-button' onClick={() => handleDislikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Dislike</button>
               <p>{postReactions[post.id]?.dislikes || 0}</p>
-           </div> 
+          </div> 
+
       </div>
     ))}
-  </div>
+    </div>
   );
 }
