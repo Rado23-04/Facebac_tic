@@ -6,6 +6,7 @@ import './post.css'
 export default function Post() {
   const [postData, setPostData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [postReactions, setPostReactions] = useState({});
   useEffect(() => {
     axios.get('http://127.0.0.1:8080/posts')
       .then(response => {
@@ -19,6 +20,44 @@ export default function Post() {
       });
   }, []);
 
+    const handleLikeClick = (postId , userId) => {
+    axios.post(`http://127.0.0.1:8080/posts/${postId}/reactions`, {
+      type: "LIKE",
+      postId: postId,
+      userId: userId,
+    })
+    .then(response => {
+      
+      console.log(response.data);
+      setPostReactions(prevReactions => ({
+        ...prevReactions,
+        [postId]: response.data.likes, 
+      }));
+    })
+    .catch(error => {
+      console.error("Une erreur s'est produite lors de la réaction :", error);
+    });
+  };
+
+    const handleDislikeClick = (postId, userId) => {
+    axios.post(`http://127.0.0.1:8080/posts/${postId}/reactions`, {
+      type: "DISLIKE",
+      postId: postId,
+      userId: userId, // Utilisez l'ID de l'utilisateur actuel
+    })
+    .then(response => {
+      // Mettez à jour l'état des réactions pour ce poste
+      setPostReactions(prevReactions => ({
+        ...prevReactions,
+        [postId]: response.data.dislikes, // suppose que la réponse contient le nombre de dislikes après l'ajout
+      }));
+    })
+    .catch(error => {
+      console.error("Une erreur s'est produite lors de la réaction :", error);
+    });
+  };
+
+
   if (isLoading) {
     return <p>Chargement en cours...</p>;
   }
@@ -29,6 +68,10 @@ export default function Post() {
       <div key={index}>
         <h1>{post.title}</h1>
         <p>{post.content}</p>
+       <button onClick={() => handleLikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Like</button>
+          <button onClick={() => handleDislikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Dislike</button>
+          <p>Likes: {postReactions[post.id]?.likes || 0}</p>
+          <p>Dislikes: {postReactions[post.id]?.dislikes || 0}</p>
       </div>
     ))}
   </div>
