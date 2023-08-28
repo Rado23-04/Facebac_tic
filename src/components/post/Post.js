@@ -20,14 +20,14 @@ export default function Post() {
       });
   }, []);
 
-    const handleLikeClick = (postId , userId) => {
+  const handleLikeClick = (postId , userId) => {
     axios.post(`http://127.0.0.1:8080/posts/${postId}/reactions`, {
       type: "LIKE",
       postId: postId,
-      userId: userId,
+      userId: userId, // Utilisez l'ID de l'utilisateur actuel
     })
     .then(response => {
-      
+      // Mettez à jour l'état des réactions pour ce poste
       console.log(response.data);
       setPostReactions(prevReactions => ({
         ...prevReactions,
