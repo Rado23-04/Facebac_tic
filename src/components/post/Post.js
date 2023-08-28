@@ -68,12 +68,18 @@ export default function Post() {
       <div key={index}>
         <h1>{post.title}</h1>
         <p>{post.content}</p>
-       <button onClick={() => handleLikeClick(post.id, "")}>Like</button>
-          <button onClick={() => handleDislikeClick(post.id, "")}>Dislike</button>
-          <p>Likes: {postReactions[post.id]?.likes || 0}</p>
-          <p>Dislikes: {postReactions[post.id]?.dislikes || 0}</p>
+
+        <div className='flexx'>
+          <button className='like-button' onClick={() => handleLikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Like</button>
+          <p>{postReactions[post.id]?.likes || 0}</p>
+        </div>
+          <div className='flexx'> 
+              <button className='like-button' onClick={() => handleDislikeClick(post.id, "a35caa02-eea3-4321-bb3d-c367497ad1c2")}>Dislike</button>
+              <p>{postReactions[post.id]?.dislikes || 0}</p>
+          </div> 
+
       </div>
     ))}
-  </div>
+    </div>
   );
 }
