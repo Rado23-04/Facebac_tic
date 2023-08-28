@@ -1,50 +1,36 @@
 import React from 'react' ;
-import { useState } from "react";
-import { MoreVert } from  "@mui/icons-material" ;
+import { useState ,useEffect} from "react";
+import axios from 'axios';
 import './post.css'
 
-export default function Post({ post }) {
-  const [like,setLike] = useState(post.like)
-  const [isLiked,setIsLiked] = useState(false)
+export default function Post() {
+  const [postData, setPostData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8080/posts')
+      .then(response => {
+        setPostData(response.data);
+        console.log(response.data); 
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Une erreur s\'est produite :', error);
+        setIsLoading(false);
+      });
+  }, []);
 
-  const likeHandler =()=>{
-    setLike(isLiked ? like-1 : like+1)
-    setIsLiked(!isLiked)
+  if (isLoading) {
+    return <p>Chargement en cours...</p>;
   }
+  console.log(postData.title);
   return (
     <div className="post">
-      <div className="postWrapper">
-        <div className="postTop">
-          <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              
-              alt=""
-            />
-            <span className="postUsername">
-              
-            </span>
-            <span className="postDate">{post.date}</span>
-          </div>
-          <div className="postTopRight">
-            <MoreVert />
-          </div>
-        </div>
-        <div className="postCenter">
-          <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={post.photo} alt="" />
-        </div>
-        <div className="postBottom">
-          <div className="postBottomLeft">
-            <img className="likeIcon" src="assets/like.png" onClick={likeHandler} alt="" />
-            <img className="likeIcon" src="assets/heart.png" onClick={likeHandler} alt="" />
-            <span className="postLikeCounter">{like} people like it</span>
-          </div>
-          <div className="postBottomRight">
-            <span className="postCommentText">{post.comment} comments</span>
-          </div>
-        </div>
+    {postData.map((post, index) => (
+      <div key={index}>
+        <h1>{post.title}</h1>
+        <p>{post.content}</p>
       </div>
-    </div>
+    ))}
+  </div>
   );
 }
