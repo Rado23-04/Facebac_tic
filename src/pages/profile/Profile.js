@@ -1,6 +1,8 @@
 import "./profile.css";
 import React, { useState } from 'react';
+import "../../components/topbar/Topbar"
 import axios from 'axios';
+import Topbar from "../../components/topbar/Topbar";
 const url = "http://127.0.0.1:8080"  ;
 export default function Profile() {
     const [username, setUsername] = useState('');
@@ -18,7 +20,10 @@ export default function Profile() {
       }
     };
   return (
+
     <div>
+      <Topbar>  </Topbar>
+    <div className="profile-form">
       <h2>Edit Profile</h2>
       <input
         type="text"
@@ -32,6 +37,7 @@ export default function Profile() {
         onChange={e => setBio(e.target.value)}
       />
       <button onClick={handleEditProfile}>Save</button>
+    </div>
     </div>
   );
 }
