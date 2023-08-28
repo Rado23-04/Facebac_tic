@@ -1,9 +1,11 @@
 import "./register.css";
 import axios from "axios";
+import { Navigate } from 'react-router-dom';
 import { useState } from "react";
 const url = "http://127.0.0.1:8080"  ;
 export default function Register() {
     const [errorMessage, setErrorMessage] = useState("");
+    const [isRegistered, setIsRegistered] = useState(false);
     const handleSubmit = async (event) => {
         event.preventDefault();
       
@@ -31,11 +33,14 @@ export default function Register() {
           const response = await axios.post(url + "/users", userData);
     
           console.log("Réponse du serveur:", response.data);
+          setIsRegistered(true);
         } catch (error) {
           console.error("Erreur lors de l'envoi des données:", error);
         }
       };
-      
+      if (isRegistered) {
+        return <Navigate to="/Login" replace={true} />; // Utilisez le composant Navigate
+      }
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -49,7 +54,7 @@ export default function Register() {
           <div className="loginBox">
             <input placeholder="Email *" id="email" className="loginInput" />
             <input placeholder="Password * " id="password" className="loginInput" />
-            <input placeholder="Confirm Password* " id="confirmPassword" className="loginInput" />
+            <input placeholder="Confirm Password * " id="confirmPassword" className="loginInput" />
             <input placeholder="Username * " id="username" className="loginInput" />
             <button className="loginButton" id="submitSignUp" onClick={handleSubmit}>Sign Up</button>
             
