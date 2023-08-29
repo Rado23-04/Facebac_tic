@@ -1,58 +1,60 @@
-.sidebar {
-    flex: 3;
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-    position: sticky;
-    top: 50px;
-  }
-  
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(179, 179, 179);
-  }
-  
-  .sidebarWrapper {
-    padding: 20px;
-  }
-  
-  .sidebarList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  .sidebarListItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .sidebarIcon {
-    margin-right: 15px;
-  }
-  
-  .sidebarButton {
-    width: 150px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: 500;
-  }
-  
-  .sidebarHr {
-    margin: 20px 0;
-  }
-  
-  .sidebarFriendList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  
-  
+.homeContainer .left-panel, .homeContainer .right-panel{
+  position: sticky;
+  top:70px;
+  width:250px;
+  height:calc(100vh - 70px);
+}
+
+.homeContainer .left-panel ul{
+  padding:10px 0px;
+  margin-top: -150px;
+}
+
+.homeContainer .left-panel ul li{
+  list-style: none;
+  display: flex;
+  padding:.7rem 1rem;
+  align-items: center;
+  transition: .3s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.homeContainer .left-panel ul li:hover{
+  background:#ddd;
+}
+
+.homeContainer .left-panel ul li > p{
+  margin-left: 10px;
+}
+
+.homeContainer .left-panel ul li > i{
+  font-size:20px;
+  color:slateblue;
+}
+
+.homeContainer .left-panel ul li > i.fa-calendar-week{
+  color:tomato;
+}
+
+.homeContainer .left-panel ul li i.fa-briefcase{
+  color:green;
+}
+
+.homeContainer .left-panel ul li i.fa-star{
+  color:yellowgreen;
+}
+
+.homeContainer .left-panel ul li i.fa-hands-helping{
+  color:indianred;
+}
+
+.homeContainer .left-panel .footer-links{
+  padding:5px 1rem;
+}
+
+.homeContainer .left-panel .footer-links a{
+  text-decoration: none;
+  color:#333;
+  font-size:12px;
+}

@@ -9,7 +9,11 @@ export default function Home(){
     return (
        <>
         <Topbar/>
-        <div className="homeContainer"><Feed/></div>
+        <div className="homeContainer">
+            <Feed/>
+           
+ 
+        </div>
         
         
        </>
