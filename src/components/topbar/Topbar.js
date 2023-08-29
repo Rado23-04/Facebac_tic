@@ -1,43 +1,41 @@
 import React from 'react' ;
 import "./topbar.css";
-import { Link } from 'react-router-dom';
-import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 export default function Topbar(){
     return (
         <div className="topbarContainer">
-        <div className="topbarLeft">
-          <span className="logo">Facebak</span>
+        <div className="nav-left">
+            <img src="/assets/" alt="Logo"/>
+            <input type="text" placeholder="Search FaceBak.."/>
         </div>
-        <div className="topbarCenter">
-          <div className="searchbar">
-            <Search className="searchIcon" />
-            <input
-              placeholder="Search for friend, post or video"
-              className="searchInput"
-            />
-          </div>
+
+        <div className="nav-middle">
+            <a href="/" className="active">
+                <i className="fa fa-home"></i>
+            </a>
+
+            <a href="/d">
+                <i className="fa fa-user-friends"></i>
+            </a>
+
+            <a href="/g">
+                <i className="fa fa-play-circle"></i>
+            </a>
+
+            <a href="/k">
+                <i className="fa fa-users"></i>
+            </a>
         </div>
-        <div className="topbarRight">
-          <div className="topbarLinks">
-            <span className="topbarLink">Homepage</span>
-            <span className="topbarLink">Timeline</span>
-          </div>
-          <div className="topbarIcons">
-            <div className="topbarIconItem">
-              <Person />
-              <span className="topbarIconBadge">1</span>
-            </div>
-            <div className="topbarIconItem">
-              <Chat />
-              <span className="topbarIconBadge">2</span>
-            </div>
-            <div className="topbarIconItem">
-              <Notifications />
-              <span className="topbarIconBadge">1</span>
-            </div>
-          </div>
-          <Link  to="/user"> <img src="/assets/person/1.jpg" alt="" className="topbarImg"/></Link>
-         
+
+        <div className="nav-right">
+            <span className="profile"></span>
+
+            <a href="/">
+                <i className="fa fa-bell"></i>
+            </a>
+
+            <a href="/h">
+                <i className="fas fa-ellipsis-h"></i>
+            </a>
         </div>
       </div>
     )
