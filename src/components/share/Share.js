@@ -1,40 +1,33 @@
 import "./share.css";
 import React from 'react' ;
-import {PermMedia, Label,Room, EmojiEmotions}  from "@mui/icons-material" 
+
 export default function Share() {
     return (
-      <div className="share">
-        <div className="shareWrapper">
-          <div className="shareTop">
-            <img className="shareProfileImg" src="/assets/person/1.jpeg" alt="" />
-            <input
-              placeholder="What's in your mind Safak?"
-              className="shareInput"
-            />
-          </div>
-          <hr className="shareHr"/>
-          <div className="shareBottom">
-              <div className="shareOptions">
-                  <div className="shareOption">
-                      <PermMedia htmlColor="tomato" className="shareIcon"/>
-                      <span className="shareOptionText">Photo or Video</span>
-                  </div>
-                  <div className="shareOption">
-                      <Label htmlColor="blue" className="shareIcon"/>
-                      <span className="shareOptionText">Tag</span>
-                  </div>
-                  <div className="shareOption">
-                      <Room htmlColor="green" className="shareIcon"/>
-                      <span className="shareOptionText">Location</span>
-                  </div>
-                  <div className="shareOption">
-                      <EmojiEmotions htmlColor="goldenrod" className="shareIcon"/>
-                      <span className="shareOptionText">Feelings</span>
-                  </div>
-              </div>
-              <button className="shareButton">Share</button>
-          </div>
-        </div>
+      <div className="middle-panel">
+                   <div className="post create">
+                <div className="post-top">
+                    <div className="dp">
+                        <img src="./images/girl.jpg" alt=""/>
+                    </div>
+                    <input type="text" placeholder="What's on your mind, Aashish ?" />
+                </div>
+                
+                <div className="post-bottom">
+                    <div className="action">
+                        <i className="fa fa-video"></i>
+                        <span>Live video</span>
+                    </div>
+                    <div className="action">
+                        <i className="fa fa-image"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div className="action">
+                        <i className="fa fa-smile"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+                
+                   </div>
       </div>
     );
   }
