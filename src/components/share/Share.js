@@ -7,9 +7,9 @@ export default function Share() {
                    <div className="post create">
                 <div className="post-top">
                     <div className="dp">
-                        <img src="./images/girl.jpg" alt=""/>
+                        <img src="assets/person/1.jpg" alt=""/>
                     </div>
-                    <input type="text" placeholder="What's on your mind, Aashish ?" />
+                    <input type="text" placeholder="What's on your mind, Maharavo ?" />
                 </div>
                 
                 <div className="post-bottom">
