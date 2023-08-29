@@ -3,6 +3,7 @@
   grid-template-columns: 1fr;
   width: 50%;
   margin-left: 25%;
+  margin-top: 75px;
 }
 
 .post > div {
