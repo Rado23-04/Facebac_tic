@@ -37,6 +37,7 @@ export default function Post() {
           userId: userId,
         })
         .then((response) => {
+          alert("DisLike succesfully 👍")
           console.log(response.data);
           setPostReactions((prevReactions) => ({
             ...prevReactions,
@@ -58,6 +59,7 @@ export default function Post() {
           userId: userId,
         })
         .then((response) => {
+          alert("Like succesfully 👍")
           console.log(response.data);
           setPostReactions((prevReactions) => ({
             ...prevReactions,
