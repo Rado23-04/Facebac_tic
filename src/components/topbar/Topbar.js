@@ -9,11 +9,11 @@ export default function Topbar(){
         </div>
 
         <div className="nav-middle">
-            <a href="/" className="active">
+            <a href="/home" className="active">
                 <i className="fa fa-home"></i>
             </a>
 
-            <a href="/d">
+            <a href="/user">
                 <i className="fa fa-user-friends"></i>
             </a>
 
