@@ -53,9 +53,9 @@ export default function Register() {
         <div className="loginRight">
           <div className="loginBox">
             <input placeholder="Email *" id="email" className="loginInput" />
-            <input placeholder="Password * " id="password" className="loginInput" />
-            <input placeholder="Confirm Password * " id="confirmPassword" className="loginInput" />
-            <input placeholder="Username * " id="username" className="loginInput" />
+            <input placeholder="Password * " id="password" className="loginInput" type="password" />
+            <input placeholder="Confirm Password *" id="confirmPassword" className="loginInput"  type="password"  />
+            <input placeholder="Username *" id="username" className="loginInput" />
             <button className="loginButton" id="submitSignUp" onClick={handleSubmit}>Sign Up</button>
             
             {errorMessage && <p className="error-message">{errorMessage}</p>}
