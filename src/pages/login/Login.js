@@ -28,7 +28,7 @@ export default function Login() {
       const response = await axios.put(url + '/users', userData);
       setIsSignIn(true);
       console.log('Réponse du serveur:', response.data);
-
+      alert("Sign In successfully")
 
     } catch (error) {
       console.error("Erreur lors de l'envoi des données:", error);
@@ -36,7 +36,7 @@ export default function Login() {
     }
   };
   if (isSignIn) {
-    return <Navigate to="/Home" replace={true} />; // Utilisez le composant Navigate
+    return <Navigate to="/Home" replace={true} />;
   }
   return (
     <div className="login">
